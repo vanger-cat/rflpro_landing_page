@@ -2,6 +2,21 @@
 
 Landing page for RFL PRO CS2 esports ecosystem. Built for Cloudflare Pages deployment and Xsolla payment verification.
 
+## Project Context
+
+**Client**: RFL PRO (contact: Dara)
+**Purpose**: Pass Xsolla payment system verification to enable in-app purchases
+
+### Key Strategic Decisions (from planning meeting)
+
+1. **Domain Strategy**: Using existing appsign.me domain infrastructure (PIXEL RAINBOW Inc. already passed Stripe verification)
+2. **Xsolla Approach**:
+   - Be transparent, don't hide lootbox mechanics (they will check the app anyway)
+   - Focus messaging on virtual currency purchase, not cases/lootboxes
+   - Xsolla is +5% fee (alternative: Uzbek payment gateway at 2-3% being explored)
+3. **Lootbox Disclosure**: Cases are purchased with crystals (both earned and bought) — this is the honest representation, no need to hide it
+4. **Age Rating**: 16+ chosen as middle ground (not 13+, not 18+)
+
 ## Project Overview
 
 **RFL PRO** is a CS2 (Counter-Strike 2) esports ecosystem with:
@@ -14,6 +29,7 @@ Landing page for RFL PRO CS2 esports ecosystem. Built for Cloudflare Pages deplo
 - **Weekly Tournaments** — 1v1, 2v2, 5v5 formats on FACEIT/FASTCUP platforms
 - **Cases & Skins** — Open cases with crystals, win real CS2 skins
 - **Community** — Active Telegram community with live streams on Twitch
+- **Earn Mechanics** — Users can earn crystals by joining community, completing tasks, tapping (like Hamster Kombat clicker)
 
 ## Business Details
 
@@ -38,6 +54,7 @@ Landing page for RFL PRO CS2 esports ecosystem. Built for Cloudflare Pages deplo
 - **Framework**: Plain HTML/CSS/JS (no build step)
 - **Hosting**: Cloudflare Pages
 - **Payment**: Xsolla
+- **Repository**: github.com/vanger-cat/rflpro_landing_page
 
 ## File Structure
 
@@ -119,11 +136,13 @@ GDPR/CCPA compliant, covers:
 ### Cloudflare Pages
 
 1. Push to GitHub repository
-2. Connect to Cloudflare Pages
+2. Connect to Cloudflare Pages (not Workers!)
 3. Settings:
    - Build command: (none)
    - Build output directory: `/`
    - Root directory: `/`
+
+Auto-deploys on merge to main branch.
 
 ### Local Development
 
@@ -171,3 +190,10 @@ From description.md (handle with care in public communications):
 - Web version (WebApp) with unified profile
 - CS2 Wiki with item pages
 - Direct skin purchases in Telegram
+
+## Work Notes
+
+- Project done within 20 hours/month budget constraint
+- First version should be good enough, don't over-polish
+- Xsolla verification is the primary goal
+- Alternative payment: Uzbekistan gateway (2-3% vs Xsolla 5%) being explored separately
